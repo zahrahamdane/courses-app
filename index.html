@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-4 mx-auto">
 
-                <h3 class="my-3 text-center"><span class="badge bg-info">ZARA'DEV Courses</span></h3>
+                <h3 class="my-3 text-center"><span class="badge bg-info">ZARA'DEV COURSES</span></h3>
 
                 <form>
                     <div class="input-group">
@@ -26,37 +26,41 @@
                 </form>
         
                 <ul class="list-group mt-3">
-                    <li class="list-group-item">element 1</li>
-                    <li class="list-group-item">element 2</li>
-                    <li class="list-group-item">element 3</li>
+                   
                 </ul>
                         
             </div>
         </div>
     </div>
 
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-    
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyA_dbpGdVJ6d4dCZOM68Mol92XPz_NpeE4",
-        authDomain: "courses-43103.firebaseapp.com",
-        projectId: "courses-43103",
-        storageBucket: "courses-43103.appspot.com",
-        messagingSenderId: "47637840993",
-        appId: "1:47637840993:web:da1dd33b15028e1c645620"
-    };
-    
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    // init service
-    const db = getFirestore();
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyA_dbpGdVJ6d4dCZOM68Mol92XPz_NpeE4",
+          authDomain: "courses-43103.firebaseapp.com",
+          projectId: "courses-43103",
+          storageBucket: "courses-43103.appspot.com",
+          messagingSenderId: "47637840993",
+          appId: "1:47637840993:web:da1dd33b15028e1c645620"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app)
 
-</script>
+        const querySnapshot = await getDocs(collection(db, "courses"));
+        querySnapshot.forEach((doc) => {
+            console.log(doc.data());
+            addCourse(doc.data());
+        })
+      </script>
+
+    <script src="script.js"></script>
 </body>
 </html>
